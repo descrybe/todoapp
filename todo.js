@@ -1,9 +1,6 @@
 let addMessage = document.querySelector('.message'),
     addButton = document.querySelector('.add'),
     todo = document.querySelector('.todo'); 
-    //при получении элемента через querySelector нужно указывать полную сигнатуру селектора,
-    //а не его название: если класс, то с .classname, если айди, #idname итд
-
     
 //массив, в котором храним каждое новое дело
 let todoList = []; 
@@ -40,8 +37,7 @@ addButton.addEventListener('click', function() {
 function displayMessages() {
     let displayMessage = '';
     todoList.forEach(function(item, i) {
-        //строковая интерполяция(шаблонные строки) при помощи обратных кавычек
-        //в фигурные скобки передается переменная
+        
         displayMessage += `
         <li>
         <input type='checkbox' id='item_${i}' ${item.checked ? 'checked' : ''}> 
@@ -88,7 +84,6 @@ todo.addEventListener('change', function(event) {
 
 //отключение контекстного меню на ПКМ
 todo.addEventListener('contextmenu', function(event) {
-   //отменяет стандартное поведение браузера
     event.preventDefault();   
     todoList.forEach(function(item, i) {
         if (item.todo === event.target.innerHTML) {
